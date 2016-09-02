@@ -15,7 +15,7 @@ class Type(models.Model):
 class Spell(models.Model):
 	name = models.CharField(max_length=64)
 	slug = models.SlugField(max_length=100)
-	description = models.CharField(max_length=1024)
+	description = models.TextField()
 	type = models.ForeignKey(Type)
 	range = models.CharField(max_length=64, blank=True)
 
