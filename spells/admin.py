@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from models import Type, Spell
+from .models import Type, Spell
 # Register your models here.
 
 @admin.register(Type)
