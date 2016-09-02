@@ -10,9 +10,9 @@ class GroupAdmin(admin.ModelAdmin):
 
 @admin.register(Spell)
 class SpellAdmin(admin.ModelAdmin):
-	list_display = ['id', 'name', 'group', 'range',]
-	list_editable = ['name',]
-	list_filter = ['group', 'range',]
-	search_fields = ['group__name', 'range', 'name']
+	list_display = ['id', 'name', 'group', 'range', 'type',]
+	list_editable = ['name', 'type',]
+	list_filter = ['group', 'range', 'type',]
+	search_fields = ['group__name', 'range', 'name',]
 
 
