@@ -2,11 +2,11 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from slughifi import slughifi
+#from slughifi import slughifi
 
 # Create your models here.
 
-class Type(models.Model):
+class Group(models.Model):
 	name = models.CharField(max_length=64)
 
 	def __unicode__(self):
@@ -14,12 +14,17 @@ class Type(models.Model):
 
 class Spell(models.Model):
 	name = models.CharField(max_length=64)
-	slug = models.SlugField(max_length=100)
+	slug = models.SlugField(max_length=100, editable=False)
 	description = models.TextField()
-	type = models.ForeignKey(Type)
+	group = models.ForeignKey(Group)
 	range = models.CharField(max_length=64, blank=True)
 
-	def save(self, *args, **kwargs):
-		self.slug = slughifi(self.name)
-		super(Spell, self).save(*args, **kwargs)
+	type_choices = (
+		('e', 'Efecto'),
+		('r', 'Rayo'),
+		('i', 'Invocación'),
+	)
+
+	type = models.CharField(max_length=1, choices=type_choices, default='e')
+
 

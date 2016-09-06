@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for spell in spells %}
+        <p>{{ spell.name }}</p>
+        <p>{{ spell.description }}</p>
+    {% endfor %}
+
+{% endblock content %}
