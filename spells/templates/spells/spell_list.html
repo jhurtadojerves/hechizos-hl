@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 
+
+{% block title %}
+	Lista de Hechizos
+{% endblock title %}
+
 {% block content %}
 
     {% for spell in spells %}
-        <p>{{ spell.name }}</p>
+        <article id="spell-{{ spell.id }}">       
+        <p><strong>{{ spell.name }}</strong></p>
         <p>{{ spell.description }}</p>
+        </article>
     {% endfor %}
 
 {% endblock content %}

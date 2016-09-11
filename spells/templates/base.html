@@ -2,11 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de hechizos</title>
+    <title>{% block title %} {% endblock title %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
 </head>
 <body>
-    {% block content %}
+    
+    <header>
+        <img src="http://www.harrylatino.org/public/style_images/81_headermagic.png" alt="">
+    </header>
+
+
+    <nav>
+    	
+    </nav>
+
+    <section id="search">
+    	<div class="input-group input-group-lg">
+        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+        <input type="text" class="form-control" placeholder="Buscar" aria-describedby="sizing-addon1" id="busqueda">
+    	</div>
+
+    	<br><br>
+
+	    <div id="resultados" class="list-group">
+
+
+	    </div>
+	    <script>
+	    $('#busqueda').keyup(function(e){
+	        $("#resultados").text("");
+	        consulta = $("#busqueda").val();
+	         $.ajax({
+	         data: {'name': consulta},
+	         url: '/buscar/',
+	         type: 'get',
+	         success : function(data) {
+	                for (i=0;i<data.length;i++){
+
+	                    if((i % 2)==0)
+	                        $("#resultados").append("<a class=\"list-group-item \" href=/hechizo/"+data[i].slug+"-"+data[i].id+">"+data[i].name+"</a>");
+	                    else
+	                        $("#resultados").append("<a class=\"list-group-item list-group-item-info\" href=/hechizo/"+data[i].slug+"-"+data[i].id+">"+data[i].name+"</a>");
+	                }
+	         },
+	         error : function(message) {
+	                 $("#resultados").text("");
+	              }
+	         });
+	    });
+
+	    </script>
+
+    </section>
+
+    <section id="content">
+    	{% block content %}
         
-    {% endblock content %}
+	    {% endblock content %}	
+    </section>
+
+    <footer>
+    	Desarrollado por <a href="http://www.harrylatino.org/user/102763-bastian-karkarov-malfoy/" target="_blank">Julio Hurtado</a> y <a href="http://www.harrylatino.org/user/42757-uzziel-fined/" target="_blank">Kevin Morales</a> para <a href="http://www.harrylatino.org/" target="_blank">Foros de HarryLatino</a>
+    </footer>
+
+
+
+    
 </body>
 </html>

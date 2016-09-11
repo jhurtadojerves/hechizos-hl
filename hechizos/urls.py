@@ -24,8 +24,4 @@ from spells import urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('spells.urls')),
-
-
-	#url(r'^$','spells.views.home', name='home'),
-	#url(r'^buscar/$','spells.views.buscar', name='buscar'),
 ]
