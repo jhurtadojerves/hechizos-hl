@@ -14,7 +14,7 @@ class Group(models.Model):
 
 class Spell(models.Model):
 	name = models.CharField(max_length=64)
-	slug = models.SlugField(max_length=100, editable=False)
+	slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
 	description = models.TextField()
 	group = models.ForeignKey(Group)
 	range = models.CharField(max_length=64, blank=True)
