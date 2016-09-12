@@ -8,9 +8,9 @@
 {% block content %}
 
     {% for spell in spells %}
-        <article id="spell-{{ spell.id }}" style="color:white;">
-        <p><strong>{{ spell.name }}</strong></p>
-        <p>{{ spell.description }}</p>
+        <article id="spell-{{ spell.id }}" "{% url 'Spell:spell_detail' %}" style="color:white;">
+            <p><strong>{{ spell.name }}</strong></p>
+            <p>{{ spell.description }}</p>
         </article>
     {% endfor %}
 
