@@ -12,7 +12,7 @@ class GroupAdmin(admin.ModelAdmin):
 
 @admin.register(Spell)
 class SpellAdmin(admin.ModelAdmin):
-	list_display = ['id', 'name', 'group', 'range', 'type',]
+	list_display = ['id', 'name', 'group', 'range', 'type', 'slug',]
 	list_editable = ['name', 'type',]
 	list_filter = ['group', 'range', 'type',]
 	search_fields = ['group__name', 'range', 'name',]

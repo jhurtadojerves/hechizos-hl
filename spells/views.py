@@ -24,5 +24,5 @@ class SpellSearchView(View):
 class SpellDetailView(DetailView):
     model = Spell
     template_name = 'spells/spell_detail.html'
-    slug_field = 'name'
+    slug_field = 'slug'
     context_object_name = 'spell'

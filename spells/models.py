@@ -13,7 +13,7 @@ class Group(models.Model):
 		return self.name
 
 class Spell(models.Model):
-	name = models.CharField(max_length=64)
+	name = models.CharField(max_length=64, unique = True)
 	slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
 	description = models.TextField()
 	group = models.ForeignKey(Group)
@@ -26,5 +26,9 @@ class Spell(models.Model):
 	)
 
 	type = models.CharField(max_length=1, choices=type_choices, default='e')
+
+	def save(self, *args, **kwargs):
+		self.slug = (self.name).replace(' ', '-').lower()
+		super(Spell, self).save(*args, **kwargs)	
 
 
