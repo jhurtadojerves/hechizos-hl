@@ -32,7 +32,8 @@
     	         data: {'name': consulta},
     	         url: '/buscar/',
     	         type: 'get',
-    	         success : function(data) {    	                
+    	         success : function(data) {    
+                        $("#resultados").text("");	                
                         for (i=0;i<data.length;i++){
 
     	                    if((i % 2)==0)
