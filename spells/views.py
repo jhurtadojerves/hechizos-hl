@@ -12,6 +12,7 @@ class SpellListView(ListView):
     model = Spell
     template_name = 'spells/spell_list.html'
     context_object_name = 'spells'
+    paginate_by = 5
 
 
 class SpellSearchView(View):
