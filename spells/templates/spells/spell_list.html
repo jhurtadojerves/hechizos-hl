@@ -6,13 +6,14 @@
 {% endblock title %}
 
 {% block content %}
-    {% for spell in spells %}
-        <article id="spell-{{ spell.id }}" style="color:white;">
-            <a href=" {% url 'Spell:spell_detail' spell.slug %}">
-                <strong>{{ spell.name }}</strong>
-            </a>
-            <p>{{ spell.description }}</p>
-        </article>
-    {% endfor %}
+
+    <article class="Spells">
+            {% for spell in spells %}
+                    <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
+                        <h2 class="Spells-title">{{ spell.name }}</h2>
+                        <p class="Spells-description">{{ spell.description }}</p>
+                    </a>
+            {% endfor %}
+    </article>
 
 {% endblock content %}

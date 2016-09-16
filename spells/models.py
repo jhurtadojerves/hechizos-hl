@@ -28,6 +28,7 @@ class Group(models.Model):
         return self.name
 
 class Spell(models.Model):
+
     name = models.CharField(max_length=64, unique = True)
     slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
     description = models.TextField()

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +7,21 @@
     <title>{% block title %} {% endblock title %}</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
 </head>
-<body style="background: #202125;">
-    <header style="text-align:center; margin-bottom: 10px;">
-        <a href="/"><img src="http://www.harrylatino.org/public/style_images/81_headermagic.png" style="width: 70%; height: auto; margin: auto auto;"></a>
+<body>
+    <header class="Header">
+        <a href="/" class="Header-container">
+            <img class="Header-image" src="http://www.harrylatino.org/public/style_images/81_headermagic.png">
+        </a>
     </header>
-    <section id="search" style="width:90%; margin:auto auto;">
-    	<div class="input-group input-group-lg">
+    <section class="Search">
+    	<article class="Search-bar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-            <input type="text" class="form-control" placeholder="Buscar" aria-describedby="sizing-addon1" id="busqueda">
-    	</div>
-	    <div id="resultados" class="list-group" style="margin-top: 5px;"></div>
+            <input type="text" class="Search-input" placeholder="Buscar hechizo, ej: Expelliarmus" aria-describedby="sizing-addon1" id="busqueda">
+    	</article>
+	    <div id="resultados" class="Search-resultados"></div>
         
         <!-- RESULTADO CON AJAX -->
 	    <script>
@@ -30,13 +32,14 @@
     	         data: {'name': consulta},
     	         url: '{% url 'Spell:spell_search' %}',
     	         type: 'get',
-    	         success : function(data) {    	                
+    	         success : function(data) {    
+                        $("#resultados").text("");	                
                         for (i=0;i<data.length;i++){
 
     	                    if((i % 2)==0)
-    	                        $("#resultados").append("<a class=\"list-group-item \" href=/"+data[i].slug+">"+data[i].name+"</a>");
+    	                        $("#resultados").append("<a class=\"Search-resultados--item \" href=/"+data[i].slug+">"+data[i].name+"</a>");
     	                    else
-    	                        $("#resultados").append("<a class=\"list-group-item list-group-item-info\" href=/"+data[i].slug+">"+data[i].name+"</a>");
+    	                        $("#resultados").append("<a class=\"Search-resultados--item Search-resultados--info\" href=/"+data[i].slug+">"+data[i].name+"</a>");
     	                }
                         if(consulta == ""){$("#resultados").text("");}
     	         },
@@ -48,12 +51,12 @@
 	    </script>
     </section>
 
-    <section id="content" style="width:90%; margin:auto auto;">
+    <section>
     	{% block content %}
         
 	    {% endblock content %}	
     </section>
-    <footer style="width:90%; margin:auto auto; color: #fff; margin-top: 100px;">
+    <footer class="Footer">
     	Desarrollado por <a href="http://www.harrylatino.org/user/102763-bastian-karkarov-malfoy/" target="_blank">Julio Hurtado</a> y <a href="http://www.harrylatino.org/user/42757-uzziel-fined/" target="_blank">Kevin Morales</a> para <a href="http://www.harrylatino.org/" target="_blank">Foros de HarryLatino</a>
     </footer>
 
