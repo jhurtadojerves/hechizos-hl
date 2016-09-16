@@ -7,4 +7,5 @@
 {% block content %}
     <h1>{{ spell.name }}</h1>
     <p style="color:white;">{{ spell.description }}</p>
+    <p style="color:white;"><strong>Forma de Invocación:</strong> {{ spell.get_method_display }}. {{ spell.get_object_display}}</p>
 {% endblock content %}

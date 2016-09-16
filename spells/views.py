@@ -9,17 +9,19 @@ from .models import Spell, Group
 
 
 class SpellListView(ListView):
-	model = Spell
-	template_name = 'spells/spell_list.html'
-	context_object_name = 'spells'
+    model = Spell
+    template_name = 'spells/spell_list.html'
+    context_object_name = 'spells'
+
 
 class SpellSearchView(View):
-	model = Spell
-	def get(self, request, *args, **kwargs):
-		if self.request.is_ajax():
-			spells = self.model.objects.filter(name__istartswith=request.GET['name']).values('id', 'name', 'slug')
-			return JsonResponse(list(spells), safe=False)
-		return JsonResponse("Solo se permiten consultas mediante AJAX", safe=False)
+    model = Spell
+
+    def get(self, request, *args, **kwargs):
+        if self.request.is_ajax():
+            spells = self.model.objects.filter(name__istartswith=request.GET['name']).values('id', 'name', 'slug')
+            return JsonResponse(list(spells), safe=False)
+        return JsonResponse("Solo se permiten consultas mediante AJAX", safe=False)
 
 class SpellDetailView(DetailView):
     model = Spell

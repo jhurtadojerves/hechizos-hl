@@ -6,10 +6,9 @@
 {% endblock title %}
 
 {% block content %}
-
     {% for spell in spells %}
         <article id="spell-{{ spell.id }}" style="color:white;">
-            <a href=" {% url 'Spell:spell_detail' spell.name %}">
+            <a href=" {% url 'Spell:spell_detail' spell.slug %}">
                 <strong>{{ spell.name }}</strong>
             </a>
             <p>{{ spell.description }}</p>

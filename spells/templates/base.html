@@ -28,7 +28,7 @@
     	        consulta = $("#busqueda").val();
     	         $.ajax({
     	         data: {'name': consulta},
-    	         url: '/buscar/',
+    	         url: '{% url 'Spell:spell_search' %}',
     	         type: 'get',
     	         success : function(data) {    	                
                         for (i=0;i<data.length;i++){
