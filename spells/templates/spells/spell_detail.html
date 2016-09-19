@@ -5,11 +5,14 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>{{ spell.name }}</h1>
+<div class="Spells">
+    <article class="Spells-item">
+        <h1 class="Spells-title">{{ spell.name }}</h1>
 
-    <p class="Spells-description">
-        {{ spell.description }}
-        <br><strong>Forma de Invocación:</strong> {{ spell.get_method_display }}. {{ spell.get_object_display}}
-    </p>
-
+        <p class="Spells-description">
+            {{ spell.description }}
+            <br><strong>Forma de Invocación:</strong> {{ spell.get_method_display }}. {{ spell.get_object_display}}
+        </p>
+    </article>
+</div>
 {% endblock content %}

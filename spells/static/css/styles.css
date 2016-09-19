@@ -1,5 +1,6 @@
 body {
   background-color: #202125;
+  color: #fff;
 }
 .Header {
   display: flex;
@@ -32,13 +33,10 @@ body {
   border: none;
   margin: 0.1% 0;
   text-decoration: none;
-<<<<<<< HEAD
   color: #ff6132;
 }
 .Search-resultados--info {
   background-color: #ffede5;
-  color: darkblue;
-
 }
 .Spells {
   display: flex;
@@ -53,11 +51,14 @@ body {
   background-color: #31333c;
   text-decoration: none;
 }
+.Spells-title {
+  color: #ff6132;
+}
 .Spells-description {
   color: #fff;
 }
 .Footer {
-  width: 98%;
+  width: 100%;
   background-color: #31333c;
   text-align: center;
   padding: 1%;
