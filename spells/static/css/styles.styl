@@ -2,6 +2,8 @@ fondo = #202125
 fondo_hechizos = #31333C
 color_naranja = #FF6132
 
+fondo_pastel = #FFEDE5
+
 body
     background-color fondo
     
@@ -27,15 +29,20 @@ body
         display flex
         flex-direction column
         overflow hidden
+        margin 0.5% 0
         
         &--item 
             background-color white
             padding 1em
             border-radius 5px
             border none
-            margin .5% 0
+            margin 0.1% 0
             text-decoration none
-            color color_azul
+            color color_naranja
+            
+
+        &--info
+            background-color fondo_pastel
 
 .Spells
     display flex
@@ -45,7 +52,7 @@ body
     &-item
         padding 1%
         margin 1%
-        width 89% 
+        width 88% 
         color color_naranja
         background-color fondo_hechizos
         text-decoration none

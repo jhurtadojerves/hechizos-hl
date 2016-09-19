@@ -23,15 +23,19 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin: 0.5% 0;
 }
 .Search-resultados--item {
   background-color: #fff;
   padding: 1em;
   border-radius: 5px;
   border: none;
-  margin: 0.5% 0;
+  margin: 0.1% 0;
   text-decoration: none;
-  color: color_azul;
+  color: #ff6132;
+}
+.Search-resultados--info {
+  background-color: #ffede5;
 }
 .Spells {
   display: flex;
@@ -41,7 +45,7 @@ body {
 .Spells-item {
   padding: 1%;
   margin: 1%;
-  width: 89%;
+  width: 88%;
   color: #ff6132;
   background-color: #31333c;
   text-decoration: none;
@@ -50,7 +54,7 @@ body {
   color: #fff;
 }
 .Footer {
-  width: 100%;
+  width: 98%;
   background-color: #31333c;
   text-align: center;
   padding: 1%;
