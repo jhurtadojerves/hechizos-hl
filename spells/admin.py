@@ -7,14 +7,14 @@ from .models import Group, Spell
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-	list_display = ['id','name',]
-	list_editable = ['name',]
+    list_display = ['id','name',]
+    list_editable = ['name',]
 
 @admin.register(Spell)
 class SpellAdmin(admin.ModelAdmin):
-	list_display = ['id', 'name', 'group', 'range', 'type', 'slug',]
-	list_editable = ['name', 'type',]
-	list_filter = ['group', 'range', 'type',]
-	search_fields = ['group__name', 'range', 'name',]
+    list_display = ['id', 'name', 'range', 'type', 'method', 'object', 'slug',]
+    list_editable = ['name', 'type', 'method', 'object',]
+    list_filter = ['group', 'range', 'type',]
+    search_fields = ['group__name', 'range', 'name',]
 
 

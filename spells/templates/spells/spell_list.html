@@ -6,15 +6,50 @@
 {% endblock title %}
 
 {% block content %}
-    <article class="Spells">
-    {% for spell in spells %}
-            <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.name %}" id="spell-{{ spell.id }}">
-                <h2 class="Spells-title">{{ spell.name }}</h2>
-                <p class="Spells-description">{{ spell.description }}</p> 
-            </a>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&larr;</span> Anterior</a></li>
+            {% else %}
+                <li class="disabled"><a href=""><span aria-hidden="true">&larr;</span> Anterior</a></li>
+            {% endif %}
 
-            
-    {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+            {% else %}
+                <li class="disabled"><a href="">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    <article class="Spells">
+            {% for spell in spells %}
+                    <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
+                        <h2 class="Spells-title">{{ spell.name }}</h2>
+                        <p class="Spells-description">{{ spell.description }}</p>
+                    </a>
+            {% endfor %}
     </article>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&larr;</span> Anterior</a></li>
+            {% else %}
+                <li class="disabled"><a href=""><span aria-hidden="true">&larr;</span> Anterior</a></li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+            {% else %}
+                <li class="disabled"><a href="">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+
+
+
+
 
 {% endblock content %}

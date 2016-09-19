@@ -6,5 +6,10 @@
 
 {% block content %}
     <h1>{{ spell.name }}</h1>
-    <p class="Spells-description">{{ spell.description }}</p>
+
+    <p class="Spells-description">
+        {{ spell.description }}
+        <br><strong>Forma de Invocación:</strong> {{ spell.get_method_display }}. {{ spell.get_object_display}}
+    </p>
+
 {% endblock content %}

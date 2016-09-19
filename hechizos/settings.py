@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'spells',
+    'spells',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -80,9 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hechizos',
         'USER': 'postgres',
-		'PASSWORD': '123456',
-		'HOST': 'localhost',
-		'PORT': '5432',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
