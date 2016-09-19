@@ -51,6 +51,9 @@ body {
   background-color: #31333c;
   text-decoration: none;
 }
+.Spells-item a {
+  text-decoration: none;
+}
 .Spells-title {
   color: #ff6132;
 }
