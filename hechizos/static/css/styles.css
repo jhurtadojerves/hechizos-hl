@@ -23,22 +23,15 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin: 0.5% 0;
 }
 .Search-resultados--item {
   background-color: #fff;
   padding: 1em;
   border-radius: 5px;
   border: none;
-  margin: 0.1% 0;
+  margin: 0.5% 0;
   text-decoration: none;
-<<<<<<< HEAD
-  color: #ff6132;
-}
-.Search-resultados--info {
-  background-color: #ffede5;
   color: darkblue;
-
 }
 .Spells {
   display: flex;
@@ -48,7 +41,7 @@ body {
 .Spells-item {
   padding: 1%;
   margin: 1%;
-  width: 88%;
+  width: 89%;
   color: #ff6132;
   background-color: #31333c;
   text-decoration: none;

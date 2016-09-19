@@ -39,6 +39,8 @@ class Spell(models.Model):
         ('e', 'Efecto'),
         ('r', 'Rayo'),
         ('i', 'Invocación'),
+        ('o', 'Invocación / Efecto'),
+        ('m', 'Onda Mágica')
     )
 
     method_choices = (
