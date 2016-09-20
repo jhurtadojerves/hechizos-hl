@@ -14,6 +14,11 @@ class SpellListView(ListView):
     context_object_name = 'spells'
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super(SpellListView, self).get_context_data(**kwargs)
+        context['categories'] = Group.objects.all()
+        return context
+
 
 class SpellSearchView(View):
     model = Spell
@@ -30,7 +35,13 @@ class SpellDetailView(DetailView):
     slug_field = 'slug'
     context_object_name = 'spell'
 
+    def get_context_data(self, **kwargs):
+        context = super(SpellDetailView, self).get_context_data(**kwargs)
+        context['categories'] = Group.objects.all()
+        return context
+
 class SpellCategoryListView(SpellListView):
+
     def get_queryset(self):
         group = get_object_or_404(Group, id = self.args[0])
         queryset = self.model.objects.filter(group = group)
