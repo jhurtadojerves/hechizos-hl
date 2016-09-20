@@ -24,6 +24,21 @@ body {
   text-decoration: none;
   color: #fff;
 }
+.MenuLibro {
+  display: none;
+  margin: 0 auto;
+  background-color: #31333c;
+  width: 88%;
+  padding: 1%;
+}
+.MenuLibro-list {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+.MenuLibro-item {
+  margin: 0;
+}
 .Search {
   margin: 0.2% 5% 1% 5%;
 }

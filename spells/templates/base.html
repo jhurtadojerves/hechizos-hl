@@ -7,7 +7,6 @@
     <title>{% block title %} {% endblock title %}</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link rel="icon" type="image/png" href="https://i.imgur.com/Griqul7.png" />
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <link rel="stylesheet" href="{% static "css/normalize.css" %}">
@@ -22,11 +21,32 @@
     <nav class="Menu">
         <ul class="Menu-list">
             <li class="Menu-item"><a href="" class="Menu-title">Neutrales</a></li>
-            <li class="Menu-item"><a href="#" class="Menu-title">Marca Tenebrosa</a></li>
-            <li class="Menu-item"><a href="#" class="Menu-title">Orden del Fénix</a></li>
-            <li class="Menu-item"><a href="#" class="Menu-title">Libros de Hechizos</a></li>
+
+            <li class="Menu-item">
+                <a href="#" class="Menu-title">Marca Tenebrosa</a>
+            </li>
+            <li class="Menu-item">
+                <a href="#" class="Menu-title">Orden del Fénix</a>
+            </li>
+            <li id="libro" class="Menu-item">
+                <a href="#" class="Menu-title">Libros de Hechizos</a>
+            </li>
         </ul>
     </nav>
+    <div id="libros" class="MenuLibro">
+        <ul class="MenuLibro-list">
+            <li class="MenuLibro-item">Aprendiz de Brujo</li>
+            <li class="MenuLibro-item">Fortaleza</li>
+            <li class="MenuLibro-item">Sangre</li>
+            <li class="MenuLibro-item">Equilibrio</li>
+            <li class="MenuLibro-item">Druida</li>
+            <li class="MenuLibro-item">Caos</li>
+            <li class="MenuLibro-item">los Ancestros</li>
+            <li class="MenuLibro-item">Auras</li>
+            <li class="MenuLibro-item">Hermes Trimegist</li>
+            <li class="MenuLibro-item">Merlín</li>
+        </ul>
+    </div>
     <section class="Search">
     	<article class="Search-bar">
             <input type="text" class="Search-input" placeholder="Buscar hechizo, ej: Expelliarmus" aria-describedby="sizing-addon1" id="busqueda">
@@ -71,7 +91,7 @@
     </footer>
 
 
-
+    <script src="{% static "js/main.js" %}"></script>
     
 </body>
 </html>
