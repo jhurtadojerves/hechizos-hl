@@ -40,7 +40,9 @@ class Spell(models.Model):
         ('r', 'Rayo'),
         ('i', 'Invocación'),
         ('o', 'Invocación / Efecto'),
-        ('m', 'Onda Mágica')
+        ('ei', 'Efecto / Invocación'),
+        ('eq', 'Equipable'),
+        ('om', 'Onda Mágica')
     )
 
     method_choices = (
@@ -54,7 +56,7 @@ class Spell(models.Model):
         ('O', 'Anillo, Colgante, etc'),
     )
 
-    type = models.CharField(max_length=1, choices=type_choices, default='e')
+    type = models.CharField(max_length=2, choices=type_choices, default='e')
     method = models.CharField(max_length=1, choices=method_choices, default='V')
     object = models.CharField(max_length=1, choices=object_choices, default='V')
 
