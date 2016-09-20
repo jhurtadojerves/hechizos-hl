@@ -31,8 +31,8 @@
             </li>
         </ul>
     </nav>
-    <div id="libros" class="MenuLibro">
-        <ul class="MenuLibro-list" style="display:none;">
+    <div id="libros" class="MenuLibro" style="display:none;">
+        <ul class="MenuLibro-list">
             {% for category in categories %}
                 {% if category.name == "Marca Tenebrosa" or category.name == "Orden del Fénix" or category.name == "Neutrales" %}
                 {% else %}
