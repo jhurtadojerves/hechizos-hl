@@ -6,8 +6,26 @@ body {
   display: flex;
   justify-content: center;
 }
+.Menu {
+  margin: 0 auto;
+  background-color: #31333c;
+  width: 88%;
+  padding: 1%;
+}
+.Menu-list {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+.Menu-item {
+  margin: 0;
+}
+.Menu-title {
+  text-decoration: none;
+  color: #fff;
+}
 .Search {
-  margin: 0 5% 1% 5%;
+  margin: 0.2% 5% 1% 5%;
 }
 .Search-bar {
   display: flex;
@@ -17,7 +35,6 @@ body {
 .Search-input {
   width: 100%;
   padding: 1em;
-  border-radius: 5px;
   border: none;
 }
 .Search-resultados {
@@ -45,7 +62,7 @@ body {
 }
 .Spells-item {
   padding: 1%;
-  margin: 1%;
+  margin: 0.1% 0;
   width: 88%;
   color: #ff6132;
   background-color: #31333c;
@@ -59,6 +76,18 @@ body {
 }
 .Spells-description {
   color: #fff;
+}
+.Pagination {
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+}
+.Pagination-button {
+  background-color: #ff2554;
+  padding: 1em;
+  text-decoration: none;
+  color: #fff;
+  margin: 0 0.1%;
 }
 .Footer {
   width: 100%;

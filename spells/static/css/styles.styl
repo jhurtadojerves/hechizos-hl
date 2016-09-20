@@ -1,7 +1,7 @@
 fondo = #202125
 fondo_hechizos = #31333C
 color_naranja = #FF6132
-
+color_fucsia = #FF2554
 fondo_pastel = #FFEDE5
 
 body
@@ -11,9 +11,27 @@ body
 .Header
     display flex
     justify-content center
+
+.Menu
+    margin 0 auto
+    background-color fondo_hechizos
+    width 88%
+    padding 1%
+    
+    &-list
+        display flex
+        list-style none
+        justify-content space-around
+    
+    &-item
+        margin 0
+    
+    &-title
+        text-decoration none
+        color white
     
 .Search
-    margin 0 5% 1% 5%
+    margin .2% 5% 1% 5%
     
     &-bar
         display flex
@@ -23,7 +41,6 @@ body
     &-input
         width 100%
         padding 1em
-        border-radius 5px
         border none
     
     &-resultados
@@ -52,7 +69,7 @@ body
     
     &-item
         padding 1%
-        margin 1%
+        margin .1% 0
         width 88% 
         color color_naranja
         background-color fondo_hechizos
@@ -68,7 +85,18 @@ body
         
      &-description
          color white
-
+         
+.Pagination
+    display flex
+    justify-content center
+    margin 1%
+    
+    &-button
+        background-color color_fucsia
+        padding 1em
+        text-decoration none
+        color white
+        margin 0 .1%
 
 .Footer
     width 100%

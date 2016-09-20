@@ -6,17 +6,6 @@
 {% endblock title %}
 
 {% block content %}
-    <nav aria-label="...">
-        <ul class="pager">
-            {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&larr;</span> Anterior</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
-            {% endif %}
-
-        </ul>
-    </nav>
     <article class="Spells">
             {% for spell in spells %}
                     <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
@@ -25,18 +14,15 @@
                     </a>
             {% endfor %}
     </article>
-    <nav aria-label="...">
-        <ul class="pager">
-            {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}"><span aria-hidden="true">&larr;</span> Anterior</a></li>
-            {% endif %}
+    <div class="Pagination">
+        {% if page_obj.has_previous %}
+            <a class="Pagination-button"href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
 
-            {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
-            {% endif %}
-
-        </ul>
-    </nav>
+        {% if page_obj.has_next %}
+            <a class="Pagination-button"href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </div>
 
 
 
