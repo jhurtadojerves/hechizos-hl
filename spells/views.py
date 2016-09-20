@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template.context import RequestContext
 from django.http import JsonResponse
 
@@ -30,20 +30,8 @@ class SpellDetailView(DetailView):
     slug_field = 'slug'
     context_object_name = 'spell'
 
-class SpellFenixListView(ListView):
-    model = Spell
-    template_name = 'spells/spell_list.html' 
-    context_object_name = 'spells'
-    queryset = Spell.objects.filter(group__name__startswith='Orden')
-
-class SpellMarcaListView(ListView):
-    model = Spell
-    template_name = 'spells/spell_list.html' 
-    context_object_name = 'spells'
-    queryset = Spell.objects.filter(group__name__startswith='Marca')
-
-class SpellLibrosListView(ListView):
-    model = Spell
-    template_name = 'spells/spell_list.html' 
-    context_object_name = 'spells'
-    queryset = Spell.objects.filter(group__name__startswith='Libro')
+class SpellCategoryListView(SpellListView):
+    def get_queryset(self):
+        group = get_object_or_404(Group, id = self.args[0])
+        queryset = self.model.objects.filter(group = group)
+        return queryset
