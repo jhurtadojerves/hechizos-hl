@@ -39,8 +39,8 @@ class Spell(models.Model):
         ('e', 'Efecto'),
         ('r', 'Rayo'),
         ('i', 'Invocación'),
-        ('o', 'Invocación / Efecto'),
-        ('ei', 'Efecto / Invocación'),
+        ('o', 'Invocación - Efecto'),
+        ('ei', 'Efecto - Invocación'),
         ('eq', 'Equipable'),
         ('om', 'Onda Mágica')
     )
