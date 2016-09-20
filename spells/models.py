@@ -24,7 +24,7 @@ class Group(models.Model):
     )
     name = models.CharField(max_length=64, choices=name_choices, unique=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class Spell(models.Model):

@@ -7,12 +7,14 @@
 
 {% block content %}
     <article class="Spells">
-            {% for spell in spells %}
-                    <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
-                        <h2 class="Spells-title">{{ spell.name }}</h2>
-                        <p class="Spells-description">{{ spell.description }}</p>
-                    </a>
-            {% endfor %}
+        {% for spell in spells %}
+            <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
+                <h2 class="Spells-title">{{ spell.name }}</h2> {% for group in spell.group.all %}
+                    <span>{{ group.name }}</span>
+                {% endfor %}
+                <p class="Spells-description">{{ spell.description }}</p>
+            </a>
+        {% endfor %}
     </article>
     <div class="Pagination">
         {% if page_obj.has_previous %}
@@ -23,10 +25,5 @@
             <a class="Pagination-button"href="?page={{ page_obj.next_page_number }}">Siguiente</a>
         {% endif %}
     </div>
-
-
-
-
-
 
 {% endblock content %}

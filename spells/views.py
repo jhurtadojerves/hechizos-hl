@@ -29,3 +29,21 @@ class SpellDetailView(DetailView):
     template_name = 'spells/spell_detail.html'
     slug_field = 'slug'
     context_object_name = 'spell'
+
+class SpellFenixListView(ListView):
+    model = Spell
+    template_name = 'spells/spell_list.html' 
+    context_object_name = 'spells'
+    queryset = Spell.objects.filter(group__name__startswith='Orden')
+
+class SpellMarcaListView(ListView):
+    model = Spell
+    template_name = 'spells/spell_list.html' 
+    context_object_name = 'spells'
+    queryset = Spell.objects.filter(group__name__startswith='Marca')
+
+class SpellLibrosListView(ListView):
+    model = Spell
+    template_name = 'spells/spell_list.html' 
+    context_object_name = 'spells'
+    queryset = Spell.objects.filter(group__name__startswith='Libro')
