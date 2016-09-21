@@ -10,6 +10,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
 <body>
@@ -20,7 +21,6 @@
     </header>
     <nav class="Menu">
         <ul class="Menu-list">
-            
             {% for category in categories %}
                 {% if category.name == 'Marca Tenebrosa' or category.name == 'Orden del Fénix' or category.name == 'Neutrales' %}
                     <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.id %}" class="Menu-title">{{ category.name }}</a></li>

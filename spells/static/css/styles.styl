@@ -1,16 +1,20 @@
 fondo = #202125
 fondo_hechizos = #31333C
+hechizos_hover = #3B3E49
 color_naranja = #FF6132
 color_fucsia = #FF2554
 fondo_pastel = #FFEDE5
 
-body
-    background-color fondo
-    color white
     
 .Header
     display flex
     justify-content center
+    
+    &-container
+        width 90%
+    
+    &-image
+        width 100%
 
 .Menu
     margin 0 auto
@@ -78,6 +82,7 @@ body
             text-decoration none
             color color_naranja
             
+            
 
         &--info
             background-color fondo_pastel
@@ -95,6 +100,12 @@ body
         background-color fondo_hechizos
         text-decoration none
         
+        &:hover
+            background-color hechizos_hover
+            transition .3s cubic-bezier(0.6, -0.28, 0.74, 0.05)
+            transform scale(1.1)
+            box-shadow 5px 5px 92px -12px black
+        
         
         & a 
             text-decoration none
@@ -102,6 +113,15 @@ body
     
     &-title
         color color_naranja
+        display inline
+        margin .8%
+    
+    &-type
+        font-size 80%
+        background-color color_fucsia
+        color white
+        padding .2em
+        border-radius 5px
         
      &-description
          color white
