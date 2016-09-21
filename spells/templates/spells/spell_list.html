@@ -9,10 +9,12 @@
     <article class="Spells">
         {% for spell in spells %}
             <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
-                <h2 class="Spells-title">{{ spell.name }}</h2> {% for group in spell.group.all %}
+                <h2 class="Spells-title">{{ spell.name }}</h2>{% for group in spell.group.all %}
                     <span>{{ group.name }}</span>
                 {% endfor %}
-                <p class="Spells-description">{{ spell.description }}</p>
+                <p class="Spells-description">
+                    {{ spell.description|linebreaksbr }}
+                </p>
             </a>
         {% endfor %}
     </article>

@@ -12,5 +12,3 @@ libro.addEventListener('click', function(e){
         libros.style.display = 'none'
     }
 })
-
-console.log(libros)

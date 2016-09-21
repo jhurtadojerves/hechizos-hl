@@ -16,5 +16,6 @@ class SpellAdmin(admin.ModelAdmin):
     list_editable = ['name', 'type', 'method', 'object',]
     list_filter = ['group', 'range', 'type',]
     search_fields = ['group__name', 'range', 'name',]
+    list_per_page = 25
 
 

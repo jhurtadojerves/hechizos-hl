@@ -39,6 +39,10 @@ body {
 .MenuLibro-item {
   margin: 0;
 }
+.MenuLibro-item a {
+  color: #fff;
+  text-decoration: none;
+}
 .Search {
   margin: 0.2% 5% 1% 5%;
 }
