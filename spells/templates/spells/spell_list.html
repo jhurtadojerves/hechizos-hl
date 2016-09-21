@@ -10,9 +10,11 @@
         {% for spell in spells %}
             <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
                 <h2 class="Spells-title">{{ spell.name }}</h2><span class="Spells-type">{{ spell.get_type_display }}</span>
+                                                                <span class="Spells-type">{{ spell.get_method_display }}</span>
 
                 <p class="Spells-description">
                     {{ spell.description|linebreaksbr }}
+                    <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
                 </p>
             </a>
         {% endfor %}

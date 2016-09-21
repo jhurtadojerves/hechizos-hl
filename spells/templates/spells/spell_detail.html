@@ -8,10 +8,12 @@
 <div class="Spells">
     <article class="Spells-item">
         <h1 class="Spells-title">{{ spell.name }}</h1><span class="Spells-type">{{ spell.get_type_display }}</span>
+                                                        <span class="Spells-type">{{ spell.get_method_display }}</span>
 
         <p class="Spells-description">
             {{ spell.description|linebreaksbr }}
-            <br><strong>Forma de Invocación:</strong> {{ spell.get_method_display }}. {{ spell.get_object_display}}
+
+            <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
         </p>
     </article>
 </div>
