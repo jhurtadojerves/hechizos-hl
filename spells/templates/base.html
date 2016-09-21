@@ -36,7 +36,7 @@
             {% for category in categories %}
                 {% if category.name == "Marca Tenebrosa" or category.name == "Orden del Fénix" or category.name == "Neutrales" %}
                 {% else %}
-                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_category' category.id%}">{{ category.name }}</a></li>
+                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_category' category.id%}">{{ category.get_name_display }}</a></li>
                 {% endif %}
 
             {% endfor %}
