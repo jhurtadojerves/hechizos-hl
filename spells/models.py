@@ -11,16 +11,16 @@ class Group(models.Model):
         ('Neutrales', 'Neutrales'),
         ('Orden del Fénix', 'Orden del Fénix'),
         ('Marca Tenebrosa', 'Marca Tenebrosa'),
-        ('Libro del Aprendiz de Brujo', 'Libro del Aprendiz de Brujo'),
-        ('Libro de la Fortaleza', 'Libro de la Fortaleza'),
-        ('Libro de la Sangre', 'Libro de la Sangre'),
-        ('Libro del Equilibrio', 'Libro del Equilibrio'),
-        ('Libro del Druida', 'Libro del Druida'),
-        ('Libro del Caos', 'Libro del Caos'),
-        ('Libro de los Ancestros', 'Libro de los Ancestros'),
-        ('Libro de las Auras', 'Libro de las Auras'),
-        ('Libro de Hermes Trimegisto', 'Libro de Hermes Trimegisto'),
-        ('Libro de Merlín', 'Libro de Merlín')
+        ('Libro del Aprendiz de Brujo', 'Aprendiz de Brujo'),
+        ('Libro de la Fortaleza', 'Fortaleza'),
+        ('Libro de la Sangre', 'Sangre'),
+        ('Libro del Equilibrio', 'Equilibrio'),
+        ('Libro del Druida', 'Druida'),
+        ('Libro del Caos', 'Caos'),
+        ('Libro de los Ancestros', 'Ancestros'),
+        ('Libro de las Auras', 'Auras'),
+        ('Libro de Hermes Trimegisto', 'Hermes Trimegisto'),
+        ('Libro de Merlín', 'Merlín')
     )
     name = models.CharField(max_length=64, choices=name_choices, unique=True)
 
