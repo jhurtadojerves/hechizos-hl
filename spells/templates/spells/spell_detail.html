@@ -10,7 +10,7 @@
         <h1 class="Spells-title">{{ spell.name }}</h1>
 
         <p class="Spells-description">
-            {{ spell.description }}
+            {{ spell.description|linebreaks }}
             <br><strong>Forma de Invocación:</strong> {{ spell.get_method_display }}. {{ spell.get_object_display}}
         </p>
     </article>
