@@ -7,7 +7,7 @@
 {% block content %}
 <div class="Spells">
     <article class="Spells-item">
-        <h1 class="Spells-title">{{ spell.name }}</h1>
+        <h1 class="Spells-title">{{ spell.name }}</h1><span class="Spells-type">{{ spell.get_type_display }}</span>
 
         <p class="Spells-description">
             {{ spell.description|linebreaksbr }}
