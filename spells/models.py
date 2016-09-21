@@ -53,7 +53,7 @@ class Spell(models.Model):
     object_choices = (
         ('V', 'Con Varita'),
         ('N', 'Sin Varita'),
-        ('O', 'Anillo, Colgante, etc'),
+        ('O', 'Objeto'),
     )
 
     type = models.CharField(max_length=2, choices=type_choices, default='e')
