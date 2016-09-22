@@ -2,8 +2,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.template.context import RequestContext
 from django.http import JsonResponse
-
-from django.views.generic import DetailView, ListView, View
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from django.views.generic import DetailView, ListView, View, UpdateView
 
 from .models import Spell, Group
 
@@ -46,3 +47,13 @@ class SpellCategoryListView(SpellListView):
         group = get_object_or_404(Group, id = self.args[0])
         queryset = self.model.objects.filter(group = group)
         return queryset
+
+class SpellEditView(UpdateView):
+    model = Spell
+    fields = ['name', 'description', 'group', 'range', 'type', 'method', 'object',]
+    template_name_suffix = '_update'
+    success_url = '../'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(SpellEditView, self).dispatch(*args, **kwargs)

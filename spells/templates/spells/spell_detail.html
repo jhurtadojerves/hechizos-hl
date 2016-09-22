@@ -17,6 +17,13 @@
                 <br>{{ group }}: {{ spell.range }}
             {% endfor %}
             <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
+            <br><br>
+            
+            {% if request.user.is_authenticated %}
+                <a class="Pagination-button" href="{% url 'Spell:spell_edit' spell.slug %}">Editar</a>
+            {% endif %}
+        
+
         </p>
     </article>
 </div>
