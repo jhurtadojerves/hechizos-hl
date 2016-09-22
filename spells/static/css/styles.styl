@@ -5,6 +5,14 @@ color_naranja = #FF6132
 color_fucsia = #FF2554
 fondo_pastel = #FFEDE5
 
+Spells()
+    padding 1%
+    margin .1% 0
+    width 88% 
+    color color_naranja
+    background-color fondo_hechizos
+    text-decoration none
+
     
 .Header
     display flex
@@ -93,12 +101,7 @@ fondo_pastel = #FFEDE5
     align-items center
     
     &-item
-        padding 1%
-        margin .1% 0
-        width 88% 
-        color color_naranja
-        background-color fondo_hechizos
-        text-decoration none
+        Spells()
         
         &:hover
             background-color hechizos_hover
@@ -109,7 +112,9 @@ fondo_pastel = #FFEDE5
         
         & a 
             text-decoration none
-
+    
+    &-detail
+        Spells()
     
     &-title
         color color_naranja
@@ -125,6 +130,9 @@ fondo_pastel = #FFEDE5
         
      &-description
          color white
+         text-align justify
+         line-height 24px
+         text-shadow 0 0 1px #fff
          
 .Pagination
     display flex
@@ -139,12 +147,12 @@ fondo_pastel = #FFEDE5
         margin 0 .1%
 
 .Footer
-    width 100%
+    max-width 90%
     background-color fondo_hechizos
     text-align center
     padding 1%
     font-size .8em
-    margin 2em 0
+    margin 0 auto
     
     & a
         text-decoration none

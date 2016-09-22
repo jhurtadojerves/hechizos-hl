@@ -98,6 +98,14 @@
 .Spells-item a {
   text-decoration: none;
 }
+.Spells-detail {
+  padding: 1%;
+  margin: 0.1% 0;
+  width: 88%;
+  color: #ff6132;
+  background-color: #31333c;
+  text-decoration: none;
+}
 .Spells-title {
   color: #ff6132;
   display: inline;
@@ -112,6 +120,9 @@
 }
 .Spells-description {
   color: #fff;
+  text-align: justify;
+  line-height: 24px;
+  text-shadow: 0 0 1px #fff;
 }
 .Pagination {
   display: flex;
@@ -126,12 +137,12 @@
   margin: 0 0.1%;
 }
 .Footer {
-  width: 100%;
+  max-width: 90%;
   background-color: #31333c;
   text-align: center;
   padding: 1%;
   font-size: 0.8em;
-  margin: 2em 0;
+  margin: 0 auto;
 }
 .Footer a {
   text-decoration: none;
