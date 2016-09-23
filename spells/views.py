@@ -51,7 +51,7 @@ class SpellCategoryListView(SpellListView):
 
 class SpellEditView(UpdateView):
     model = Spell
-    fields = ['name', 'description', 'group', 'range', 'type', 'method', 'object',]
+    fields = ['name', 'description', 'range', 'type', 'method', 'object',]
     template_name_suffix = '_update'
     success_url = '../'
 

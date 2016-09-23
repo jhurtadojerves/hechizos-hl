@@ -12,11 +12,13 @@
 
         <p class="Spells-description">
             {{ spell.description|linebreaksbr }}
-            <br><br><strong>Lista: </strong>
-            {% for group in spell.group.all %}
-                <br>{{ group }}: {{ spell.range }}
-            {% endfor %}
             <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
+            <br><br><strong>Lista: </strong>
+            <ul>
+                {% for range in spell.range.all %}
+                    <li>{{ range.group }}: {{ range.name }}</li>
+                {% endfor %}
+            </ul>
             <br><br>
             
             {% if request.user.is_authenticated %}
