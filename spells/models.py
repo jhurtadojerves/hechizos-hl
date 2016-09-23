@@ -33,7 +33,7 @@ class Range(models.Model):
     group = models.ForeignKey(Group)
 
     def __unicode__(self):
-        return selg.name
+        return self.name
 
 
 class Spell(models.Model):
