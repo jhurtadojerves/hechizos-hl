@@ -24,16 +24,21 @@ class Group(models.Model):
     )
     name = models.CharField(max_length=64, choices=name_choices, unique=True)
 
+
     def __unicode__(self):
         return self.name
+
+class Range(models.Model):
+    name = models.CharField(max_length=64)
+    group = models.ForeignKey(Group)
+
 
 class Spell(models.Model):
 
     name = models.CharField(max_length=64, unique = True)
     slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
     description = models.TextField()
-    group = models.ManyToManyField(Group)
-    range = models.CharField(max_length=64, blank=True)
+    range = models.ForeignKey(Range, null = True)
 
     type_choices = (
         ('e', 'Efecto'),

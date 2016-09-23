@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView, ListView, View, UpdateView
 
-from .models import Spell, Group
+from .models import Spell, Group, Range
 
 
 class SpellListView(ListView):
@@ -45,7 +45,8 @@ class SpellCategoryListView(SpellListView):
 
     def get_queryset(self):
         group = get_object_or_404(Group, id = self.args[0])
-        queryset = self.model.objects.filter(group = group)
+        ranges = Range.objects.filter(group = group)
+        queryset = self.model.objects.filter(range__in = ranges)
         return queryset
 
 class SpellEditView(UpdateView):
