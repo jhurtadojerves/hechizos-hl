@@ -32,6 +32,9 @@ class Range(models.Model):
     name = models.CharField(max_length=64)
     group = models.ForeignKey(Group)
 
+    def __unicode__(self):
+        return selg.name
+
 
 class Spell(models.Model):
 
