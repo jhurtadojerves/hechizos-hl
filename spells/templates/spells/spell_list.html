@@ -14,7 +14,7 @@
 
                 <p class="Spells-description">
                     {{ spell.description|linebreaksbr }}
-                    <<br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
+                    <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
                     <br><br><strong>Lista: </strong>
                     <ul>
                         {% for range in spell.range.all %}
@@ -36,3 +36,18 @@
     </div>
 
 {% endblock content %}
+
+{% block subMenu %}
+    {% if flag %}
+    <div id="libros" class="MenuLibro">
+        <ul class="MenuLibro-list">
+            {% for range in ranges %}
+                {% if range.group == category %}
+                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_range' range.group.slug range.slug %}">{{ range.name }}</a></li>
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock %}

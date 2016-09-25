@@ -35,6 +35,7 @@ class SpellDetailView(DetailView):
     template_name = 'spells/spell_detail.html'
     slug_field = 'slug'
     context_object_name = 'spell'
+    order_by = 'range'
 
     def get_context_data(self, **kwargs):
         context = super(SpellDetailView, self).get_context_data(**kwargs)
@@ -48,6 +49,14 @@ class SpellCategoryListView(SpellListView):
         ranges = Range.objects.filter(group = group)
         queryset = self.model.objects.filter(range__in = ranges)
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(SpellCategoryListView, self).get_context_data(**kwargs)
+        context['categories'] = Group.objects.all().order_by('id')
+        context['ranges'] = Range.objects.all().order_by('id')
+        context['category'] = get_object_or_404(Group, slug = self.kwargs['slug'])
+        context['flag'] = True
+        return context
 
 class SpellEditView(UpdateView):
     model = Spell

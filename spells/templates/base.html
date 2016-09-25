@@ -22,26 +22,15 @@
     <nav class="Menu">
         <ul class="Menu-list">
             {% for category in categories %}
-                {% if category.name == 'Marca Tenebrosa' or category.name == 'Orden del Fénix' or category.name == 'Neutrales' %}
-                    <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
-                {% endif %}
+                <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
             {% endfor %}
-            <li id="libro" class="Menu-item">
-                <a href="#" class="Menu-title">Libros de Hechizos</a>
-            </li>
         </ul>
     </nav>
-    <div id="libros" class="MenuLibro" style="display:none;">
-        <ul class="MenuLibro-list">
-            {% for range in ranges %}
-                {% if range.group.name == "Marca Tenebrosa" or range.group.name == "Orden del Fénix" or range.group.name == "Neutrales" %}
-                {% else %}
-                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_range' range.group.slug range.slug %}">{{ range.name }}</a></li>
-                {% endif %}
 
-            {% endfor %}
-        </ul>
-    </div>
+    {% block subMenu %}
+
+    {% endblock %}
+
     <section class="Search">
     	<article class="Search-bar">
             <input type="text" class="Search-input" placeholder="Buscar hechizo, ej: Expelliarmus" aria-describedby="sizing-addon1" id="busqueda">
