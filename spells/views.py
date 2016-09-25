@@ -74,3 +74,11 @@ class SpellListRangeView(SpellListView):
         range = get_object_or_404(Range, slug = self.kwargs['slug_range'])
         queryset = self.model.objects.filter(range = range)
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(SpellListRangeView, self).get_context_data(**kwargs)
+        context['categories'] = Group.objects.all().order_by('id')
+        context['ranges'] = Range.objects.all().order_by('id')
+        context['category'] = get_object_or_404(Group, slug=self.kwargs['slug'])
+        context['flag'] = True
+        return context
