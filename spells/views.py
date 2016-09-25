@@ -18,8 +18,8 @@ class SpellListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(SpellListView, self).get_context_data(**kwargs)
         context['categories'] = Group.objects.all().order_by('id')
+        context['ranges'] = Range.objects.all().order_by('id')
         return context
-
 
 class SpellSearchView(View):
     model = Spell
@@ -39,6 +39,7 @@ class SpellDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SpellDetailView, self).get_context_data(**kwargs)
         context['categories'] = Group.objects.all().order_by('id')
+        context['ranges'] = Range.objects.all().order_by('id')
         return context
 
 class SpellCategoryListView(SpellListView):

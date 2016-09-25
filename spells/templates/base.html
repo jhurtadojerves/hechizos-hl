@@ -33,10 +33,10 @@
     </nav>
     <div id="libros" class="MenuLibro" style="display:none;">
         <ul class="MenuLibro-list">
-            {% for category in categories %}
-                {% if category.name == "Marca Tenebrosa" or category.name == "Orden del Fénix" or category.name == "Neutrales" %}
+            {% for range in ranges %}
+                {% if range.group.name == "Marca Tenebrosa" or range.group.name == "Orden del Fénix" or range.group.name == "Neutrales" %}
                 {% else %}
-                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_category' category.slug %}">{{ category.get_name_display }}</a></li>
+                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_range' range.group.slug range.slug %}">{{ range.name }}</a></li>
                 {% endif %}
 
             {% endfor %}
