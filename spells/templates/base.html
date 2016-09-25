@@ -51,9 +51,9 @@
                         for (i=0;i<data.length;i++){
 
     	                    if((i % 2)==0)
-    	                        $("#resultados").append("<a class=\"Search-resultados--item \" href=/"+data[i].slug+">"+data[i].name+"</a>");
+    	                        $("#resultados").append("<a class=\"Search-resultados--item \" href=\"/hechizo/"+data[i].slug+"/\">"+data[i].name+"</a>");
     	                    else
-    	                        $("#resultados").append("<a class=\"Search-resultados--item Search-resultados--info\" href=/"+data[i].slug+">"+data[i].name+"</a>");
+    	                        $("#resultados").append("<a class=\"Search-resultados--item Search-resultados--info\" href=\"/hechizo/"+data[i].slug+"/\">"+data[i].name+"</a>");
     	                }
                         if(consulta == ""){$("#resultados").text("");}
     	         },

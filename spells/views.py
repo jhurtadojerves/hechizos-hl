@@ -23,7 +23,6 @@ class SpellListView(ListView):
 
 class SpellSearchView(View):
     model = Spell
-
     def get(self, request, *args, **kwargs):
         if self.request.is_ajax():
             spells = self.model.objects.filter(name__icontains = request.GET['name']).values('id', 'name', 'slug')[:10]
