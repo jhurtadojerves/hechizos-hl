@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-#from slughifi import slughifi
+from slughifi import slughifi
 
 # Create your models here.
 
@@ -23,7 +23,11 @@ class Group(models.Model):
         ('Libro de Merlín', 'Merlín')
     )
     name = models.CharField(max_length=64, choices=name_choices, unique=True)
+    slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
 
+    def save(self, *args, **kwargs):
+        self.slug = slughifi(self.name).lower()
+        super(Group, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
@@ -31,9 +35,15 @@ class Group(models.Model):
 class Range(models.Model):
     name = models.CharField(max_length=64)
     group = models.ForeignKey(Group)
+    slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = self.slug = slughifi(self.name).lower()
+        super(Range, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
+
 
 
 class Spell(models.Model):
@@ -69,5 +79,5 @@ class Spell(models.Model):
     object = models.CharField(max_length=1, choices=object_choices, default='V')
 
     def save(self, *args, **kwargs):
-        self.slug = (self.name).replace(' ', '-').lower()
+        self.slug = self.slug = slughifi(self.name).lower()
         super(Spell, self).save(*args, **kwargs)

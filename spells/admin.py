@@ -7,7 +7,7 @@ from .models import Group, Spell, Range
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-    list_display = ['id','name',]
+    list_display = ['id','name', 'slug',]
     list_editable = ['name',]
 
 @admin.register(Spell)
@@ -20,4 +20,4 @@ class SpellAdmin(admin.ModelAdmin):
 
 @admin.register(Range)
 class RangeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'group',]
+    list_display = ['id', 'name', 'group', 'slug',]

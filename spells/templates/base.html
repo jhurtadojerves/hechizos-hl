@@ -23,7 +23,7 @@
         <ul class="Menu-list">
             {% for category in categories %}
                 {% if category.name == 'Marca Tenebrosa' or category.name == 'Orden del Fénix' or category.name == 'Neutrales' %}
-                    <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.id %}" class="Menu-title">{{ category.name }}</a></li>
+                    <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
                 {% endif %}
             {% endfor %}
             <li id="libro" class="Menu-item">
@@ -36,7 +36,7 @@
             {% for category in categories %}
                 {% if category.name == "Marca Tenebrosa" or category.name == "Orden del Fénix" or category.name == "Neutrales" %}
                 {% else %}
-                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_category' category.id%}">{{ category.get_name_display }}</a></li>
+                    <li class="MenuLibro-item"><a href="{% url 'Spell:spell_category' category.slug %}">{{ category.get_name_display }}</a></li>
                 {% endif %}
 
             {% endfor %}

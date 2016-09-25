@@ -16,7 +16,7 @@
             <br><br><strong>Lista: </strong>
             <ul>
                 {% for range in spell.range.all %}
-                    <li>{{ range.group }}: {{ range.name }}</li>
+                    <li>{{ range.group }}: <a href="{% url 'Spell:spell_range' range.group.slug range.slug %}">{{ range.name }}</a></li>
                 {% endfor %}
             </ul>
             <br><br>
