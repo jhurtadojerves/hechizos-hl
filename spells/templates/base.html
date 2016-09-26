@@ -19,10 +19,16 @@
             <img class="Header-image" src="https://i.imgur.com/qH0xY1I.png">
         </a>
     </header>
+
+
     <nav class="Menu">
         <ul class="Menu-list">
             {% for category in categories %}
-                <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
+                {% if rol %}
+                    <li class="Menu-item"><a href="{% url 'Spell:spell_category_rol' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
+                {% else %}
+                    <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
+                {% endif %}
             {% endfor %}
         </ul>
     </nav>

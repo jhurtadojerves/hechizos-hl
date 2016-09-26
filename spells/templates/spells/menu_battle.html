@@ -1,0 +1,7 @@
+<nav class="Menu">
+    <ul class="Menu-list">
+        {% for category in categories %}
+            <li class="Menu-item"><a href="{% url 'Spell:spell_category' category.slug %}" class="Menu-title">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>

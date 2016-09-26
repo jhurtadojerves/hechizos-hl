@@ -51,12 +51,14 @@ class Spell(models.Model):
         ('o', 'Invocación - Efecto'),
         ('ei', 'Efecto - Invocación'),
         ('eq', 'Equipable'),
-        ('om', 'Onda Mágica')
+        ('om', 'Onda Mágica'),
+        ('ro', 'Rolistico'),
     )
 
     method_choices = (
         ('V', 'Verbal'),
         ('N', 'No Verbal'),
+        ('R', 'Rolistico'),
     )
 
     object_choices = (
@@ -68,7 +70,14 @@ class Spell(models.Model):
     type = models.CharField(max_length=2, choices=type_choices, default='e')
     method = models.CharField(max_length=1, choices=method_choices, default='V')
     object = models.CharField(max_length=1, choices=object_choices, default='V')
+    battles = models.BooleanField(default = True)
 
     def save(self, *args, **kwargs):
         self.slug = self.slug = slughifi(self.name).lower()
+
+        if not self.battles:
+            self.type = 'ro'
+            self.method = 'R'
+            self.object = 'O'
+
         super(Spell, self).save(*args, **kwargs)
