@@ -1,10 +1,6 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
-from slughifi import slughifi
+from django.utils.text import slugify
 
-# Create your models here.
 
 class Group(models.Model):
     name_choices = (
@@ -17,29 +13,28 @@ class Group(models.Model):
     slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
 
     def save(self, *args, **kwargs):
-        self.slug = slughifi(self.name).lower()
+        self.slug = slugify(self.name)
         super(Group, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
+
 
 class Range(models.Model):
     name = models.CharField(max_length=64)
-    group = models.ForeignKey(Group)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
     slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
 
     def save(self, *args, **kwargs):
-        self.slug = self.slug = slughifi(self.name).lower()
+        self.slug = slugify(self.name)
         super(Range, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
-
 class Spell(models.Model):
-
-    name = models.CharField(max_length=64, unique = True)
+    name = models.CharField(max_length=64, unique=True)
     slug = models.SlugField(allow_unicode=True, max_length=100, editable=False)
     description = models.TextField()
     range = models.ManyToManyField(Range)
@@ -73,7 +68,7 @@ class Spell(models.Model):
     battles = models.BooleanField(default = True)
 
     def save(self, *args, **kwargs):
-        self.slug = self.slug = slughifi(self.name).lower()
+        self.slug = slugify(self.name).lower()
 
         if not self.battles:
             self.type = 'ro'
