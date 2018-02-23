@@ -15,7 +15,6 @@ class SpellListView(ListView):
     template_name = 'spells/spell_list.html'
     context_object_name = 'spells'
     paginate_by = 5
-    ordering = '?'
 
     def get_queryset(self):
         if self.rol:
