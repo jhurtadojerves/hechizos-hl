@@ -2,6 +2,7 @@ dj-database-url==0.4.2
 diff-match-patch==20121119
 Django==1.11
 django-import-export==0.7.0
+djangorestframework==3.7.7
 et-xmlfile==1.0.1
 gunicorn==19.7.1
 jdcal==1.3
