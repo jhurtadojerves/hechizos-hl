@@ -65,7 +65,7 @@ class Spell(models.Model):
     type = models.CharField(max_length=2, choices=type_choices, default='e')
     method = models.CharField(max_length=1, choices=method_choices, default='V')
     object = models.CharField(max_length=1, choices=object_choices, default='V')
-    battles = models.BooleanField(default = True)
+    battles = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name).lower()
