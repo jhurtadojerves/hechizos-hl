@@ -6,7 +6,7 @@ app_name = 'Api'
 
 urlpatterns = [
     url(
-        regex='^',
+        regex='^spells/$',
         view=SpellAPIList.as_view(),
         name='list'
     ),
