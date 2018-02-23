@@ -38,12 +38,12 @@ urlpatterns = [
         name='spell_category_rol'
     ),
     url(
-        regex='^spell/(?P<slug>[-\w]+)/$',
+        regex='^spells/(?P<slug>[-\w]+)/$',
         view=SpellDetailView.as_view(),
         name='spell_detail'
     ),
     url(
-        regex='^spell/(?P<slug>[-\w]+)/edit/$',
+        regex='^spells/(?P<slug>[-\w]+)/edit/$',
         view=SpellEditView.as_view(),
         name='spell_edit'
     ),
