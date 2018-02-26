@@ -5,6 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock title %}</title>
+    {% block open_graph %}
+        <meta property="og:title" content="Lista de hechizos del foro de HarryLatino">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Lista de todos los hechizos rolisticos en rol y batallas disponibles en el foro de HarryLatino.">
+    {% endblock open_graph %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link rel="icon" type="image/png" href="https://i.imgur.com/Griqul7.png" />
     <!-- Latest compiled and minified CSS -->
