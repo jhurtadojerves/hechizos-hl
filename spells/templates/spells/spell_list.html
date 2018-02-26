@@ -6,11 +6,14 @@
 {% endblock title %}
 
 {% block content %}
-    <article class="Spells">
+    <section class="Spells">
         {% for spell in spells %}
-            <a class="Spells-item" href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">
-                <h2 class="Spells-title">{{ spell.name }}</h2><span class="Spells-type">{{ spell.get_type_display }}</span>
-                                                                <span class="Spells-type">{{ spell.get_method_display }}</span>
+            <article class="Spells-item">
+                <h2 class="Spells-title">
+                    <a href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">{{ spell.name }}</a>
+                </h2>
+                <span class="Spells-type">{{ spell.get_type_display }}</span>
+                <span class="Spells-type">{{ spell.get_method_display }}</span>
 
                 <p class="Spells-description">
                     {{ spell.description|linebreaksbr }}
@@ -22,9 +25,9 @@
                         {% endfor %}
                     </ul>
                 </p>
-            </a>
+            </article>
         {% endfor %}
-    </article>
+    </section>
     <div class="Pagination">
         {% if page_obj.has_previous %}
             <a class="Pagination-button"href="?page={{ page_obj.previous_page_number }}">Anterior</a>

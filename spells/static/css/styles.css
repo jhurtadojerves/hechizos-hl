@@ -90,8 +90,8 @@
 }
 .Spells-item:hover {
   background-color: #3b3e49;
-  /*transition: 0.3s cubic-bezier(0.6, -0.28, 0.74, 0.05);
-  transform: scale(1.1);*/
+  transition: 0.3s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+  transform: scale(1.1);
   box-shadow: 5px 5px 92px -12px #000;
 }
 .Spells-item a {
@@ -106,9 +106,13 @@
   text-decoration: none;
 }
 .Spells-title {
-  color: #ff6132;
   display: inline;
   margin: 0.8%;
+}
+
+.Spells-title a {
+  color: #ff6132;
+  text-decoration: underline;
 }
 .Spells-type {
   font-size: 80%;

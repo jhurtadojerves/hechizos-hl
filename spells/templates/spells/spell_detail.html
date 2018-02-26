@@ -3,6 +3,10 @@
 {% block title %}
     {{ spell.name }}
 {% endblock title %}
+{% block open_graph %}
+    <meta property="og:title" content="{{ spell.name }}">
+    <meta property="og:description" content="{{ spell.description|truncatechars:200 }}">
+{% endblock open_graph %}
 
 {% block content %}
 <div class="Spells">
