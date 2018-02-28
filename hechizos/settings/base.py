@@ -19,11 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -72,11 +67,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hechizos.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
