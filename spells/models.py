@@ -76,3 +76,6 @@ class Spell(models.Model):
             self.object = 'O'
 
         super(Spell, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['name']
