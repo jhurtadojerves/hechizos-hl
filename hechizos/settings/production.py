@@ -2,9 +2,9 @@ import dj_database_url
 
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['http://hechizos.herokuapp.com/']
+ALLOWED_HOSTS = ['https://hechizos.herokuapp.com/']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
