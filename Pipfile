@@ -20,6 +20,7 @@ xlwt = "==1.3.0"
 Django = "==1.11"
 et_xmlfile = "==1.0.1"
 PyYAML = "==3.12"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.6"
