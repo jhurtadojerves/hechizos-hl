@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 
-from .serializers import SpellSerializer
+from .serializers import SpellSerializer, RangeSerializer
 
 from spells.models import Spell, Range
-
 
 
 class SpellAPIList(ListAPIView):
@@ -19,7 +18,7 @@ class SpellAPIDetail(RetrieveAPIView):
 
 
 class SpellRangeAPIList(ListAPIView):
-    serializer_class = SpellSerializer
+    serializer_class = RangeSerializer
 
     def get_queryset(self):
         range = get_object_or_404(Range, slug=self.kwargs['slug'])
