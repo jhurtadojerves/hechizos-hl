@@ -21,6 +21,7 @@ Django = "==1.11"
 et_xmlfile = "==1.0.1"
 PyYAML = "==3.12"
 dj-database-url = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"
