@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 
+from .pagination import SpellsPagination
 from .serializers import SpellSerializer, RangeSerializer
 
 from spells.models import Spell, Range
@@ -9,6 +10,7 @@ from spells.models import Spell, Range
 class SpellAPIList(ListAPIView):
     queryset = Spell.objects.all()
     serializer_class = SpellSerializer
+    pagination_class = SpellsPagination
 
 
 class SpellAPIDetail(RetrieveAPIView):
