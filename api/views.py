@@ -6,7 +6,6 @@ from .serializers import SpellSerializer
 from spells.models import Spell, Range
 
 
-
 class SpellAPIList(ListAPIView):
     queryset = Spell.objects.all()
     serializer_class = SpellSerializer
