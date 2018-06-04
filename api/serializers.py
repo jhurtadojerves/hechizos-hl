@@ -10,7 +10,8 @@ class RangeSerializer(serializers.ModelSerializer):
         fields = ('name',)
 
 
-class SpellSerializer(serializers.ModelSerializer):
+class SpellSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name="Api:detail", lookup_field="slug")
     type = serializers.SerializerMethodField()
     method = serializers.SerializerMethodField()
     object = serializers.SerializerMethodField()
@@ -19,6 +20,7 @@ class SpellSerializer(serializers.ModelSerializer):
     class Meta:
         model = Spell
         fields = (
+            'url',
             'id',
             'name',
             'description',
