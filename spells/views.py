@@ -36,10 +36,8 @@ class SpellSearchView(View):
     model = Spell
 
     def get(self, request, *args, **kwargs):
-        if self.request.is_ajax():
-            spells = self.model.objects.filter(name__icontains=request.GET['name']).values('id', 'name', 'slug')[:10]
-            return JsonResponse(list(spells), safe=False)
-        return JsonResponse("Solo se permiten consultas mediante AJAX", safe=False)
+        spells = self.model.objects.filter(name__icontains=request.GET['name']).values('id', 'name', 'slug')[:10]
+        return JsonResponse(list(spells), safe=False)
 
 
 class SpellDetailView(DetailView):
