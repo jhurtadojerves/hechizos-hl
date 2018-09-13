@@ -13,6 +13,11 @@ class SpellAPIList(ListAPIView):
     pagination_class = SpellsPagination
 
 
+class ALLSpellAPIList(ListAPIView):
+    queryset = Spell.objects.all()
+    serializer_class = SpellSerializer
+
+
 class SpellAPIDetail(RetrieveAPIView):
     queryset = Spell.objects.all()
     serializer_class = SpellSerializer

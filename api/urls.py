@@ -1,6 +1,11 @@
 from django.conf.urls import url
 
-from .views import SpellAPIList, SpellAPIDetail, SpellRangeAPIList
+from .views import (
+    SpellAPIList,
+    SpellAPIDetail,
+    SpellRangeAPIList,
+    ALLSpellAPIList,
+)
 
 app_name = 'Api'
 
@@ -8,6 +13,11 @@ urlpatterns = [
     url(
         regex='^spells/$',
         view=SpellAPIList.as_view(),
+        name='list'
+    ),
+    url(
+        regex='^spells/all/$',
+        view=ALLSpellAPIList.as_view(),
         name='list'
     ),
     url(
