@@ -97,3 +97,5 @@ local_settings.py
 hechizos/static/css/*
 
 db.sqlite3
+
+.vscode
