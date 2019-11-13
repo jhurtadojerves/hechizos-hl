@@ -1,13 +1,21 @@
 from rest_framework import serializers
 
-from spells.models import Spell, Range
+from spells.models import Spell, Range, Group
 
 
 class RangeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Range
-        fields = ('name',)
+        fields = ('name', 'group', 'slug')
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name="Api:category-detail", lookup_field="slug")
+
+    class Meta:
+        model = Group
+        fields = ('url', 'name', 'slug')
 
 
 class SpellSerializer(serializers.HyperlinkedModelSerializer):
