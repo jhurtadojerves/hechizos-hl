@@ -29,6 +29,7 @@ class SpellRangeAPIList(ListAPIView):
 
 class SpellGroupAPIList(ListAPIView):
     serializer_class = SpellSerializer
+    pagination_class = SpellsPagination
 
     def get_queryset(self):
         group = get_object_or_404(Group, slug=self.kwargs['slug'])
