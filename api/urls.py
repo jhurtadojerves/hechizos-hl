@@ -1,11 +1,17 @@
 from django.conf.urls import url
 from django.urls import path
 
-from .views import SpellAPIList, SpellAPIDetail, SpellRangeAPIList, CategoryAPIList, RangeCategoryAPIList, SpellRangeCategoryAPIList
+from .views import SpellAPIList, SpellAPIDetail, SpellRangeAPIList, CategoryAPIList, RangeCategoryAPIList, SpellRangeCategoryAPIList, \
+    SpellGroupAPIList
 
 app_name = 'Api'
 
 urlpatterns = [
+    url(
+        regex='^group/(?P<slug>[-\w]+)/$',
+        view=SpellGroupAPIList.as_view(),
+        name='spells_by_group'
+    ),
     url(
         regex='^categories/$',
         view=CategoryAPIList.as_view(),
@@ -36,6 +42,7 @@ urlpatterns = [
         view=SpellRangeAPIList.as_view(),
         name='list_by_range'
     ),
+
 
 
 ]

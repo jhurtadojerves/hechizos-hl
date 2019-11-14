@@ -27,6 +27,14 @@ class SpellRangeAPIList(ListAPIView):
         return Spell.objects.filter(range=range, battles=True)
 
 
+class SpellGroupAPIList(ListAPIView):
+    serializer_class = SpellSerializer
+
+    def get_queryset(self):
+        group = get_object_or_404(Group, slug=self.kwargs['slug'])
+        return Spell.objects.filter(range__group=group, battles=True)
+
+
 class CategoryAPIList(ListAPIView):
     serializer_class = CategorySerializer
     queryset = Group.objects.all()
