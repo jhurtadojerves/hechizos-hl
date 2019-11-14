@@ -20,7 +20,7 @@ class SpellAPIDetail(RetrieveAPIView):
 
 
 class SpellRangeAPIList(ListAPIView):
-    serializer_class = RangeSerializer
+    serializer_class = SpellSerializer
 
     def get_queryset(self):
         range = get_object_or_404(Range, slug=self.kwargs['slug'])
