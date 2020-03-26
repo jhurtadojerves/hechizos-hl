@@ -77,4 +77,4 @@ class Spell(models.Model):
         super(Spell, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["-battles", "name"]
