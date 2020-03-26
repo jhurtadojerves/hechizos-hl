@@ -1,37 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{ spell.name }}
+  {{ spell.name }}
 {% endblock title %}
 {% block open_graph %}
-    <meta property="og:title" content="{{ spell.name }}">
-    <meta property="og:description" content="{{ spell.description|truncatechars:200 }}">
+  <meta property="og:title" content="{{ spell.name }}">
+  <meta property="og:description" content="{{ spell.description|truncatechars:200 }}">
 {% endblock open_graph %}
 
 {% block content %}
-<div class="Spells">
-    <article class="Spells-detail">
-        <h1 class="Spells-title">{{ spell.name }}</h1>
-        <span class="Spells-type">{{ spell.get_type_display }}</span>
-        <span class="Spells-type">{{ spell.get_method_display }}</span>
-
-        <p class="Spells-description">
-            {{ spell.description|linebreaksbr }}
-            <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
-            <br><br><strong>Lista: </strong>
-            <ul>
-                {% for range in spell.range.all %}
-                    <li>{{ range.group }}: <a href="{% url 'Spell:spell_range' range.group.slug range.slug %}">{{ range.name }}</a></li>
-                {% endfor %}
-            </ul>
-            <br><br>
-            
-            {% if request.user.is_authenticated %}
-                <a class="Pagination-button" href="{% url 'Spell:spell_edit' spell.slug %}">Editar</a>
-            {% endif %}
-        
-
-        </p>
-    </article>
-</div>
+  <div class="Spells">
+    {% include 'spells/spell.html' %}
+  </div>
 {% endblock content %}

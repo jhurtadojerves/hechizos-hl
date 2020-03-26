@@ -1,30 +1,16 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
 
 [dev-packages]
 
 [packages]
-diff-match-patch = "*"
+django = "*"
 django-import-export = "*"
 djangorestframework = "*"
-jdcal = "*"
-odfpy = "*"
-openpyxl = "*"
-pytz = "*"
-tablib = "*"
-unicodecsv = "*"
-xlrd = "*"
-xlwt = "*"
-Django = "*"
-et_xmlfile = "*"
-PyYAML = "*"
-dj-database-url = "*"
 django-cors-headers = "*"
-gunicorn = "*"
-"psycopg2" = "*"
-whitenoise = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.7"

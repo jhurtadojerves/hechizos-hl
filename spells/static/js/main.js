@@ -1,5 +1,5 @@
-var libro = document.getElementById('libro')
-var libros = document.getElementById('libros')
+let libro = document.getElementById('libro')
+let libros = document.getElementById('libros')
 
 libro.addEventListener('click', function(e){
     e.preventDefault()

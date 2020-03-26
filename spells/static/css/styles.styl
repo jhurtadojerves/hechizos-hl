@@ -62,7 +62,8 @@ Spells()
             text-decoration none
     
 .Search
-    margin .2% 5% 1% 5%
+    margin 1% auto
+    width 88%
     
     &-bar
         display flex
@@ -101,24 +102,28 @@ Spells()
     
     &-item
         Spells()
-        
+
         &:hover
             background-color hechizos_hover
             transition .3s cubic-bezier(0.6, -0.28, 0.74, 0.05)
-            transform scale(1.1)
             box-shadow 5px 5px 92px -12px black
-        
-        
+
         & a 
             text-decoration none
     
     &-detail
         Spells()
+
+    &-range
+        color whitesmoke
     
     &-title
         color color_naranja
         display inline
         margin .8%
+        & a
+            color: color_naranja;
+            text-decoration: underline;
     
     &-type
         font-size 80%
@@ -127,12 +132,12 @@ Spells()
         padding .2em
         border-radius 5px
         
-     &-description
-         color white
-         text-align justify
-         line-height 24px
-         text-shadow 0 0 1px #fff
-         
+    &-description
+        color white
+        text-align justify
+        line-height 24px
+        text-shadow 0 0 1px #fff
+
 .Pagination
     display flex
     justify-content center

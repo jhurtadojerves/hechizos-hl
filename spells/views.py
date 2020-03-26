@@ -12,22 +12,15 @@ from .models import Spell, Group, Range
 class SpellListView(ListView):
     rol = False
     model = Spell
-    template_name = 'spells/spell_list.html'
-    context_object_name = 'spells'
+    template_name = "spells/spell_list.html"
+    context_object_name = "spells"
     paginate_by = 10
-
-    def get_queryset(self):
-        if self.rol:
-            queryset = self.model.objects.exclude(battles=True)
-        else:
-            queryset = self.model.objects.exclude(battles=False)
-        return queryset
 
     def get_context_data(self, **kwargs):
         context = super(SpellListView, self).get_context_data(**kwargs)
-        context['categories'] = Group.objects.all().order_by('id')
-        context['ranges'] = Range.objects.all().order_by('id')
-        context['rol'] = self.rol
+        context["categories"] = Group.objects.all().order_by("id")
+        context["ranges"] = Range.objects.all().order_by("id")
+        context["rol"] = self.rol
 
         return context
 
@@ -36,48 +29,54 @@ class SpellSearchView(View):
     model = Spell
 
     def get(self, request, *args, **kwargs):
-        spells = self.model.objects.filter(name__icontains=request.GET['name']).values('id', 'name', 'slug')[:10]
+        spells = self.model.objects.filter(name__icontains=request.GET["name"]).values(
+            "id", "name", "slug"
+        )[:10]
         return JsonResponse(list(spells), safe=False)
 
 
 class SpellDetailView(DetailView):
     model = Spell
-    template_name = 'spells/spell_detail.html'
-    slug_field = 'slug'
-    context_object_name = 'spell'
-    order_by = 'range'
+    template_name = "spells/spell_detail.html"
+    slug_field = "slug"
+    context_object_name = "spell"
+    order_by = "range"
 
     def get_context_data(self, **kwargs):
         context = super(SpellDetailView, self).get_context_data(**kwargs)
-        context['categories'] = Group.objects.all().order_by('id')
-        context['ranges'] = Range.objects.all().order_by('id')
+        context["categories"] = Group.objects.all().order_by("id")
+        context["ranges"] = Range.objects.all().order_by("id")
         return context
 
 
 class SpellCategoryListView(SpellListView):
     def get_queryset(self):
-        group = get_object_or_404(Group, slug=self.kwargs['slug'])
+        group = get_object_or_404(Group, slug=self.kwargs["slug"])
         ranges = Range.objects.filter(group=group)
-        if self.rol:
-            queryset = self.model.objects.filter(range__in=ranges).exclude(battles=True)
-        else:
-            queryset = self.model.objects.filter(range__in=ranges).exclude(battles=False)
+        queryset = self.model.objects.filter(range__in=ranges)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(SpellCategoryListView, self).get_context_data(**kwargs)
-        context['categories'] = Group.objects.all().order_by('id')
-        context['ranges'] = Range.objects.all().order_by('id')
-        context['category'] = get_object_or_404(Group, slug=self.kwargs['slug'])
-        context['flag'] = True
+        context["categories"] = Group.objects.all().order_by("id")
+        context["ranges"] = Range.objects.all().order_by("id")
+        context["category"] = get_object_or_404(Group, slug=self.kwargs["slug"])
+        context["flag"] = True
         return context
 
 
 class SpellEditView(UpdateView):
     model = Spell
-    fields = ['name', 'description', 'range', 'type', 'method', 'object', ]
-    template_name_suffix = '_update'
-    success_url = '../'
+    fields = [
+        "name",
+        "description",
+        "range",
+        "type",
+        "method",
+        "object",
+    ]
+    template_name_suffix = "_update"
+    success_url = "../"
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -85,22 +84,22 @@ class SpellEditView(UpdateView):
 
 
 class SpellListRangeView(SpellListView):
-
     def get_queryset(self):
-        group = get_object_or_404(Group, slug=self.kwargs['slug'])
-        range = get_object_or_404(Range, slug=self.kwargs['slug_range'])
+        group = get_object_or_404(Group, slug=self.kwargs["slug"])
+        group_range = get_object_or_404(Range, slug=self.kwargs["slug_range"])
 
-        if self.rol:
-            queryset = self.model.objects.filter(range=range, battles=False)
-        else:
-            queryset = self.model.objects.filter(range=range, battles=True)
+        queryset = self.model.objects.filter(range=group_range)
         return queryset
 
     def get_context_data(self, **kwargs):
-        context = super(SpellListRangeView, self).get_context_data(**kwargs)
-        context['categories'] = Group.objects.all().order_by('id')
-        context['ranges'] = Range.objects.all().order_by('id')
-        context['category'] = get_object_or_404(Group, slug=self.kwargs['slug'])
-        context['flag'] = True
-        context['rol'] = self.rol
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "categories": Group.objects.all().order_by("id"),
+                "ranges": Range.objects.all().order_by("id"),
+                "category": get_object_or_404(Group, slug=self.kwargs["slug"]),
+                "flag": True,
+                "rol": self.rol,
+            }
+        )
         return context

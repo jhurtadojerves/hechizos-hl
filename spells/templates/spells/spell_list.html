@@ -2,59 +2,23 @@
 
 
 {% block title %}
-	Lista de Hechizos
+  Lista de Hechizos
 {% endblock title %}
 
 {% block content %}
-    <section class="Spells">
-        {% for spell in spells %}
-            <article class="Spells-item">
-                <h2 class="Spells-title">
-                    <a href=" {% url 'Spell:spell_detail' spell.slug %}" id="spell-{{ spell.id }}">{{ spell.name }}</a>
-                </h2>
-                <span class="Spells-type">{{ spell.get_type_display }}</span>
-                <span class="Spells-type">{{ spell.get_method_display }}</span>
+  <section class="Spells">
+    {% for spell in spells %}
+      {% include 'spells/spell.html' %}
+    {% endfor %}
+  </section>
+  <div class="Pagination">
+    {% if page_obj.has_previous %}
+      <a class="Pagination-button" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+    {% endif %}
 
-                <p class="Spells-description">
-                    {{ spell.description|linebreaksbr }}
-                    <br><br><strong>Forma de Invocación:</strong> {{ spell.get_object_display}}
-                    <br><br><strong>Lista: </strong>
-                    <ul>
-                        {% for range in spell.range.all %}
-                            <li>{{ range.group }}: {{ range.name }}</li>
-                        {% endfor %}
-                    </ul>
-                </p>
-            </article>
-        {% endfor %}
-    </section>
-    <div class="Pagination">
-        {% if page_obj.has_previous %}
-            <a class="Pagination-button"href="?page={{ page_obj.previous_page_number }}">Anterior</a>
-        {% endif %}
-
-        {% if page_obj.has_next %}
-            <a class="Pagination-button"href="?page={{ page_obj.next_page_number }}">Siguiente</a>
-        {% endif %}
-    </div>
+    {% if page_obj.has_next %}
+      <a class="Pagination-button" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+    {% endif %}
+  </div>
 
 {% endblock content %}
-
-{% block subMenu %}
-    {% if flag %}
-    <div id="libros" class="MenuLibro">
-        <ul class="MenuLibro-list">
-            {% for range in ranges %}
-                {% if range.group == category %}
-                    {% if rol %}
-                        <li class="MenuLibro-item"><a href="{% url 'Spell:spell_range_rol' range.group.slug range.slug %}">{{ range.name }}</a></li>
-                    {% else %}
-                        <li class="MenuLibro-item"><a href="{% url 'Spell:spell_range' range.group.slug range.slug %}">{{ range.name }}</a></li>
-                    {% endif %}
-
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-{% endblock %}

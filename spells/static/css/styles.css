@@ -45,7 +45,8 @@
   text-decoration: none;
 }
 .Search {
-  margin: 0.2% 5% 1% 5%;
+  margin: 1% auto;
+  width: 88%;
 }
 .Search-bar {
   display: flex;
@@ -91,7 +92,6 @@
 .Spells-item:hover {
   background-color: #3b3e49;
   transition: 0.3s cubic-bezier(0.6, -0.28, 0.74, 0.05);
-  transform: scale(1.1);
   box-shadow: 5px 5px 92px -12px #000;
 }
 .Spells-item a {
@@ -105,11 +105,14 @@
   background-color: #31333c;
   text-decoration: none;
 }
+.Spells-range {
+  color: #f5f5f5;
+}
 .Spells-title {
+  color: #ff6132;
   display: inline;
   margin: 0.8%;
 }
-
 .Spells-title a {
   color: #ff6132;
   text-decoration: underline;
@@ -124,7 +127,7 @@
 .Spells-description {
   color: #fff;
   text-align: justify;
-  /*line-height: 24px;*/
+  line-height: 24px;
   text-shadow: 0 0 1px #fff;
 }
 .Pagination {
@@ -144,73 +147,10 @@
   background-color: #31333c;
   text-align: center;
   padding: 1%;
-  font-size: 1em;
+  font-size: 0.8em;
   margin: 0 auto;
 }
 .Footer a {
   text-decoration: none;
   color: #ff6132;
 }
-
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
-  body{
-    width: 100% !important;
-
-  }
-
-  .Spells-item {
-    width: 100%;
-
-    margin: 0;
-    margin-bottom: 5px;
-  }
-
-    .Menu {
-      width: 98%;
-      font-size: 0.5em;
-
-
-
-    }
-
-    .Menu-item {
-    margin-right: 1.5em;
-    }
-
-
-
-    .MenuLibro {
-
-      width: 98%;
-      font-size: 0.5em;
-
-    }
-
-    .MenuLibro-item {
-      margin-right: 1em;
-  }
-
-    .Footer {
-      width: 100%;
-      margin-top: 2em;
-      margin-bottom: 2em;
-
-    }
-    .Spells-detail {
-
-      width: 98%;
-
-
-    }
-
-    .Spells-title {
-
-      display: block;
-
-    }
-
-}
-
-
