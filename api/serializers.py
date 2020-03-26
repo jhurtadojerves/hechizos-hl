@@ -4,22 +4,25 @@ from spells.models import Spell, Range, Group
 
 
 class RangeSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Range
-        fields = ('name', 'group', 'slug')
+        fields = ("name", "group", "slug")
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="Api:category-detail", lookup_field="slug")
+    url = serializers.HyperlinkedIdentityField(
+        view_name="Api:category-detail", lookup_field="slug"
+    )
 
     class Meta:
         model = Group
-        fields = ('url', 'name', 'slug')
+        fields = ("url", "name", "slug")
 
 
 class SpellSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="Api:detail", lookup_field="slug")
+    url = serializers.HyperlinkedIdentityField(
+        view_name="Api:detail", lookup_field="slug"
+    )
     type = serializers.SerializerMethodField()
     method = serializers.SerializerMethodField()
     object = serializers.SerializerMethodField()
@@ -28,15 +31,16 @@ class SpellSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Spell
         fields = (
-            'url',
-            'id',
-            'name',
-            'description',
-            'range',
-            'type',
-            'method',
-            'object',
-            'battles'
+            "url",
+            "id",
+            "name",
+            "description",
+            "range",
+            "type",
+            "method",
+            "object",
+            "battles",
+            "slug",
         )
 
     def get_type(self, obj):

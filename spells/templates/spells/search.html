@@ -1,33 +1,9 @@
+{% load static %}
 <section class="Search">
-    <article class="Search-bar">
-        <input type="text" class="Search-input" placeholder="Buscar hechizo, ej: Expelliarmus" aria-describedby="sizing-addon1" id="busqueda">
-    </article>
-    <div id="resultados" class="Search-resultados"></div>
-    
-    <!-- RESULTADO CON AJAX -->
-    <script>
-        $('#busqueda').keyup(function(e){
-            $("#resultados").text("");
-            consulta = $("#busqueda").val();
-             $.ajax({
-             data: {'name': consulta},
-             url: '{% url 'Spell:spell_search' %}',
-             type: 'get',
-             success : function(data) {    
-                    $("#resultados").text("");                  
-                    for (i=0;i<data.length;i++){
-
-                        if((i % 2)==0)
-                            $("#resultados").append("<a class=\"Search-resultados--item \" href=\"/spells/"+data[i].slug+"/\">"+data[i].name+"</a>");
-                        else
-                            $("#resultados").append("<a class=\"Search-resultados--item Search-resultados--info\" href=\"/spells/"+data[i].slug+"/\">"+data[i].name+"</a>");
-                    }
-                    if(consulta == ""){$("#resultados").text("");}
-             },
-             error : function(message) {
-                     $("#resultados").text("");
-                  }
-             });
-        });
-    </script>
+  <article class="Search-bar">
+    <input type="text" class="Search-input" placeholder="Buscar hechizo, ej: Expelliarmus"
+           aria-describedby="sizing-addon1" id="busqueda">
+  </article>
+  <div id="resultados" class="Search-resultados"></div>
+  <script src="{% static 'js/search.js' %}"></script>
 </section>
