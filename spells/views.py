@@ -18,10 +18,13 @@ class SpellListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(SpellListView, self).get_context_data(**kwargs)
-        context["categories"] = Group.objects.all().order_by("id")
-        context["ranges"] = Range.objects.all().order_by("id")
-        context["rol"] = self.rol
-
+        context.update(
+            {
+                "categories": Group.objects.all().order_by("id"),
+                "ranges": Range.objects.all().order_by("id"),
+                "rol": self.rol,
+            }
+        )
         return context
 
 
@@ -44,8 +47,12 @@ class SpellDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SpellDetailView, self).get_context_data(**kwargs)
-        context["categories"] = Group.objects.all().order_by("id")
-        context["ranges"] = Range.objects.all().order_by("id")
+        context.update(
+            {
+                "categories": Group.objects.all().order_by("id"),
+                "ranges": Range.objects.all().order_by("id"),
+            }
+        )
         return context
 
 
@@ -58,10 +65,15 @@ class SpellCategoryListView(SpellListView):
 
     def get_context_data(self, **kwargs):
         context = super(SpellCategoryListView, self).get_context_data(**kwargs)
-        context["categories"] = Group.objects.all().order_by("id")
-        context["ranges"] = Range.objects.all().order_by("id")
-        context["category"] = get_object_or_404(Group, slug=self.kwargs["slug"])
-        context["flag"] = True
+        context.update(
+            {
+                "categories": Group.objects.all().order_by("id"),
+                "ranges": Range.objects.all().order_by("id"),
+                "category": get_object_or_404(Group, slug=self.kwargs["slug"]),
+                "flag": True,
+            }
+        )
+
         return context
 
 
@@ -80,7 +92,7 @@ class SpellEditView(UpdateView):
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(SpellEditView, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
 
 class SpellListRangeView(SpellListView):
